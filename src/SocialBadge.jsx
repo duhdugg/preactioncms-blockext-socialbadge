@@ -28,47 +28,45 @@ const labels = {
   twitter: 'Twitter',
 }
 
-class SocialBadge extends React.Component {
-  render() {
-    const badges = []
-    for (let key of Object.keys(icons)) {
-      if (this.props[key]) {
-        badges.push({
-          key,
-          url: this.props[key],
-          Icon: icons[key],
-          label: labels[key],
-        })
-      }
+function SocialBadge(props) {
+  const badges = []
+  for (let key of Object.keys(icons)) {
+    if (props[key]) {
+      badges.push({
+        key,
+        url: props[key],
+        Icon: icons[key],
+        label: labels[key],
+      })
     }
-    return (
-      <div className='social-badge'>
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {badges.map((badge) => {
-            const { key, url, Icon, label } = badge
-            return (
-              <a
-                className={`${key}-badge`}
-                href={url}
-                key={key}
-                rel='noreferrer noopener'
-                style={{ display: 'block' }}
-                target='_blank'
-              >
-                <Icon
-                  aria-label={label}
-                  style={{
-                    width: `${this.props.size}em`,
-                    height: `${this.props.size}em`,
-                  }}
-                />
-              </a>
-            )
-          })}
-        </div>
-      </div>
-    )
   }
+  return (
+    <div className='social-badge'>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {badges.map((badge) => {
+          const { key, url, Icon, label } = badge
+          return (
+            <a
+              className={`${key}-badge`}
+              href={url}
+              key={key}
+              rel='noreferrer noopener'
+              style={{ display: 'block' }}
+              target='_blank'
+            >
+              <Icon
+                aria-label={label}
+                style={{
+                  width: `${props.size}em`,
+                  height: `${props.size}em`,
+                }}
+              />
+            </a>
+          )
+        })}
+      </div>
+    </div>
+  )
 }
 
 SocialBadge.propTypes = {
@@ -94,65 +92,63 @@ SocialBadge.defaultProps = {
   size: '3',
 }
 
-class SocialBadgeSettings extends React.Component {
-  render() {
-    return (
-      <div>
-        <h6>Social Badge Settings</h6>
-        <hr className='mb-3' />
-        <Input
-          type='range'
-          label='Size'
-          min='2'
-          max='10'
-          value={this.props.propsData.size || '3'}
-          valueHandler={this.props.getPropsDataValueHandler('size')}
-        />
-        <Input
-          type='url'
-          label='DEV URL'
-          labelFloat
-          value={this.props.propsData.dev}
-          valueHandler={this.props.getPropsDataValueHandler('dev')}
-        />
-        <Input
-          type='url'
-          label='Facebook URL'
-          labelFloat
-          value={this.props.propsData.facebook}
-          valueHandler={this.props.getPropsDataValueHandler('facebook')}
-        />
-        <Input
-          type='url'
-          label='GitHub URL'
-          labelFloat
-          value={this.props.propsData.github}
-          valueHandler={this.props.getPropsDataValueHandler('github')}
-        />
-        <Input
-          type='url'
-          label='Instagram URL'
-          labelFloat
-          value={this.props.propsData.instagram}
-          valueHandler={this.props.getPropsDataValueHandler('instagram')}
-        />
-        <Input
-          type='url'
-          label='LinkedIn URL'
-          labelFloat
-          value={this.props.propsData.linkedin}
-          valueHandler={this.props.getPropsDataValueHandler('linkedin')}
-        />
-        <Input
-          type='url'
-          label='Twitter URL'
-          labelFloat
-          value={this.props.propsData.twitter}
-          valueHandler={this.props.getPropsDataValueHandler('twitter')}
-        />
-      </div>
-    )
-  }
+function SocialBadgeSettings(props) {
+  return (
+    <div>
+      <h6>Social Badge Settings</h6>
+      <hr className='mb-3' />
+      <Input
+        type='range'
+        label='Size'
+        min='2'
+        max='10'
+        value={props.propsData.size || '3'}
+        valueHandler={props.getPropsDataValueHandler('size')}
+      />
+      <Input
+        type='url'
+        label='DEV URL'
+        labelFloat
+        value={props.propsData.dev}
+        valueHandler={props.getPropsDataValueHandler('dev')}
+      />
+      <Input
+        type='url'
+        label='Facebook URL'
+        labelFloat
+        value={props.propsData.facebook}
+        valueHandler={props.getPropsDataValueHandler('facebook')}
+      />
+      <Input
+        type='url'
+        label='GitHub URL'
+        labelFloat
+        value={props.propsData.github}
+        valueHandler={props.getPropsDataValueHandler('github')}
+      />
+      <Input
+        type='url'
+        label='Instagram URL'
+        labelFloat
+        value={props.propsData.instagram}
+        valueHandler={props.getPropsDataValueHandler('instagram')}
+      />
+      <Input
+        type='url'
+        label='LinkedIn URL'
+        labelFloat
+        value={props.propsData.linkedin}
+        valueHandler={props.getPropsDataValueHandler('linkedin')}
+      />
+      <Input
+        type='url'
+        label='Twitter URL'
+        labelFloat
+        value={props.propsData.twitter}
+        valueHandler={props.getPropsDataValueHandler('twitter')}
+      />
+    </div>
+  )
 }
 
 SocialBadgeSettings.propTypes = {
