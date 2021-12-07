@@ -2,24 +2,27 @@
   "name": "preactioncms-blockext-socialbadge",
   "version": "0.0.2",
   "private": true,
+  "description": "Social Badge Block Extension for Preaction CMS",
+  "repository": "https://github.com/duhdugg/preactioncms-blockext-socialbadge.git",
+  "author": "Doug Elkin <doug@dougelkin.com>",
+  "license": "MIT",
   "module": "dist/preactioncms-blockext-socialbadge.esm.js",
   "files": [
     "dist/*",
     "src/*",
     "public/*"
   ],
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "rollup -c",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
       "plugin:prettier/recommended",
       "plugin:react/recommended"
     ]
+  },
+  "prettier": {
+    "jsxSingleQuote": true,
+    "semi": false,
+    "singleQuote": true
   },
   "browserslist": {
     "production": "defaults and supports es6-module",
@@ -59,13 +62,17 @@
     "sass": "^1.44.0"
   },
   "peerDependencies": {
-    "@preaction/bootstrap-clips": "^3.0.0-beta.8",
-    "@preaction/inputs": "^3.0.0-beta.1",
+    "@preaction/bootstrap-clips": "^5.0.0-alpha.15",
+    "@preaction/inputs": "^5.0.0-alpha.8",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
-  "description": "Social Badge Block Extension for Preaction CMS",
-  "repository": "https://github.com/duhdugg/preactioncms-blockext-socialbadge.git",
-  "author": "Doug Elkin <doug@dougelkin.com>",
-  "license": "MIT"
+  "scripts": {
+    "start": "DISABLE_ESLINT_PLUGIN=true BROWSER=none react-scripts start",
+    "build": "rollup -c",
+    "test": "npm run prettier-check && npm run eslint-check && react-scripts test --watchAll=false",
+    "eject": "react-scripts eject",
+    "eslint-check": "eslint --max-warnings 0 ./*.js src/*.j*",
+    "prettier-check": "prettier -c ./*.json ./*.js src/*.j* public/*.html"
+  }
 }
