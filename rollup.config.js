@@ -17,18 +17,33 @@ const plugins = [
   commonjs(),
 ]
 
-const esmConfig = {
+const esmComponent = {
   input: 'src/SocialBadge.jsx',
   external: ['prop-types'],
   output: [
     {
-      file: pkg.module,
+      file: './dist/preactioncms-blockext-socialbadge.esm.js',
       format: 'esm',
       sourcemap: true,
     },
   ],
-  plugins: plugins.concat(visualizer({ filename: 'stats/esm.html' })),
+  plugins: plugins.concat(visualizer({ filename: 'stats/esm-component.html' })),
 }
 
-const m = [esmConfig]
+const esmSettingsComponent = {
+  input: 'src/SocialBadgeSettings.jsx',
+  external: ['prop-types'],
+  output: [
+    {
+      file: './dist/preactioncms-blockext-socialbadge-settings.esm.js',
+      format: 'esm',
+      sourcemap: true,
+    },
+  ],
+  plugins: plugins.concat(
+    visualizer({ filename: 'stats/esm-settings-component.html' })
+  ),
+}
+
+const m = [esmComponent, esmSettingsComponent]
 export default m

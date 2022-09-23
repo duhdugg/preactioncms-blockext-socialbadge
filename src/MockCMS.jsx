@@ -1,4 +1,5 @@
-import { SocialBadge } from './SocialBadge.jsx'
+import SocialBadge from './SocialBadge.jsx'
+import SocialBadgeSettings from './SocialBadgeSettings.jsx'
 import { Boilerplate, Card } from '@preaction/bootstrap-clips'
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -60,7 +61,7 @@ function MockCMS(props) {
             headerTheme='dark'
             className='settings-view'
           >
-            <SocialBadge.Settings
+            <SocialBadgeSettings
               propsData={propsData}
               getPropsDataValueHandler={getPropsDataValueHandler}
             />
