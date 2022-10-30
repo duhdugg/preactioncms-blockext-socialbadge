@@ -6,6 +6,7 @@ import {
   FaGithubSquare,
   FaInstagramSquare,
   FaLinkedin,
+  FaMastodon,
   FaTwitterSquare,
 } from 'react-icons/fa'
 
@@ -15,6 +16,7 @@ const icons = {
   github: FaGithubSquare,
   instagram: FaInstagramSquare,
   linkedin: FaLinkedin,
+  mastodon: FaMastodon,
   twitter: FaTwitterSquare,
 }
 
@@ -24,6 +26,7 @@ const labels = {
   github: 'GitHub',
   instagram: 'Instagram',
   linkedin: 'LinkedIn',
+  mastodon: 'Mastodon',
   twitter: 'Twitter',
 }
 
@@ -44,14 +47,22 @@ function SocialBadge(props) {
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {badges.map((badge) => {
           const { key, url, Icon, label } = badge
+          let linkTarget = '_blank'
+          let linkRel = [
+            'noreferrer',
+            'noopener',
+            key === 'mastodon' ? 'me' : '',
+          ]
+            .filter((x) => !!x)
+            .join(' ')
           return (
             <a
               className={`${key}-badge`}
               href={url}
               key={key}
-              rel='noreferrer noopener'
+              rel={linkRel}
               style={{ display: 'block' }}
-              target='_blank'
+              target={linkTarget}
             >
               <Icon
                 aria-label={label}
@@ -74,6 +85,7 @@ SocialBadge.propTypes = {
   github: PropTypes.string,
   instagram: PropTypes.string,
   linkedin: PropTypes.string,
+  mastodon: PropTypes.string,
   preaction: PropTypes.object.isRequired,
   size: PropTypes.string,
   twitter: PropTypes.string,
@@ -87,6 +99,7 @@ SocialBadge.defaultProps = {
   github: '',
   instagram: '',
   linkedin: '',
+  mastodon: '',
   twitter: '',
   size: '3',
 }

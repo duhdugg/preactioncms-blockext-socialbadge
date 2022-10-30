@@ -12,6 +12,7 @@ const mockPropsData = {
   github: 'https://github.com/duhdugg',
   instagram: 'about:blank',
   linkedin: 'about:blank',
+  mastodon: 'about:blank',
   twitter: 'https://twitter.com/_duhdugg',
 }
 
