@@ -8,6 +8,7 @@ import {
   FaLinkedin,
   FaMastodon,
   FaTwitterSquare,
+  FaYoutubeSquare,
 } from 'react-icons/fa'
 
 const icons = {
@@ -18,6 +19,7 @@ const icons = {
   linkedin: FaLinkedin,
   mastodon: FaMastodon,
   twitter: FaTwitterSquare,
+  youtube: FaYoutubeSquare,
 }
 
 const labels = {
@@ -28,6 +30,7 @@ const labels = {
   linkedin: 'LinkedIn',
   mastodon: 'Mastodon',
   twitter: 'Twitter',
+  youtube: 'Youtube',
 }
 
 function SocialBadge(props) {

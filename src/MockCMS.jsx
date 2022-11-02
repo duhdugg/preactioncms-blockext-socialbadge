@@ -14,6 +14,7 @@ const mockPropsData = {
   linkedin: 'about:blank',
   mastodon: 'about:blank',
   twitter: 'https://twitter.com/_duhdugg',
+  youtube: 'https://youtube.com/@duhdugg',
 }
 
 const mockPreaction = {

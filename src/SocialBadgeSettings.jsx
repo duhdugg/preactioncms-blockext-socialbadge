@@ -64,6 +64,13 @@ function SocialBadgeSettings(props) {
         value={props.propsData.twitter}
         valueHandler={props.getPropsDataValueHandler('twitter')}
       />
+      <Input
+        type='url'
+        label='Youtube URL'
+        labelFloat
+        value={props.propsData.youtube}
+        valueHandler={props.getPropsDataValueHandler('youtube')}
+      />
     </div>
   )
 }
