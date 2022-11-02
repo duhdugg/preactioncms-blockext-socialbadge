@@ -50,22 +50,14 @@ function SocialBadge(props) {
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {badges.map((badge) => {
           const { key, url, Icon, label } = badge
-          let linkTarget = '_blank'
-          let linkRel = [
-            'noreferrer',
-            'noopener',
-            key === 'mastodon' ? 'me' : '',
-          ]
-            .filter((x) => !!x)
-            .join(' ')
           return (
             <a
               className={`${key}-badge`}
               href={url}
               key={key}
-              rel={linkRel}
+              rel='me noreferrer noopener'
               style={{ display: 'block' }}
-              target={linkTarget}
+              target='_blank'
             >
               <Icon
                 aria-label={label}
