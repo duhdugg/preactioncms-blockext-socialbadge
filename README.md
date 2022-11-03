@@ -46,3 +46,6 @@ blockExtensions.SocialBadge.Settings =
   blockExtensionSettings.SocialBadgeSettings
 // ...
 ```
+4. Execute `yarn build` in your `preaction-cms` directory.
+
+You should now see a "Social Badges" option in the "Add Block" menus.
